@@ -1,33 +1,23 @@
-<script src="http://code.angularjs.org/1.2.6/angular.js">
-</script>
-<script src="javascripts/angularScript.js" type="text/javascript"></script>
+<html>
 
-<div ng-app="validationApp" ng-controller="mainController">
-    <form name="userForm" ng-submit="submitForm()" novalidate>
+<head>
+    <title>Register Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
 
-        <!-- NAME -->
-        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
-            <label>Name</label>
-            <input type="text" name="name" class="form-control" ng-model="user.name" required>
-            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
-        </div>
+<body>
 
-        <!-- USERNAME -->
-        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
-            <label>Username</label>
-            <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8">
-            <p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
-            <p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
-        </div>
+    <div class="container">
+        <form action="/register" method="post" style="max-width: 300px">
+            <h2 class="form-signin-heading">Sign Up here</h2>
+            <input class="form-control" type="text" name="name" placeholder="Name" />
+            <input class="form-control" type="text" name="username" placeholder="Username" />
+            <input class="form-control" type="password" name="password" id="password" placeholder="Password" />
 
-        <!-- EMAIL -->
-        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
-            <label>Email</label>
-            <input type="email" name="email" class="form-control" ng-model="user.email">
-            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
-        </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+        </form>
+    </div>
 
-        <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+</body>
 
-    </form>
-</div>
+</html>
