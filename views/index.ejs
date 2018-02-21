@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    
+
   </head>
+
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <a href="/register">Register link</a><br>
+    <a href="/login">Login link</a>
+    <div ng-view></div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="js/angularScript.js"></script>
+
   </body>
 </html>
