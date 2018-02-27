@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+.md-datepicker-calendar-pane{
+  z-index: 1200
+}
+
+.md-datepicker-button {
+  float: left;
+}

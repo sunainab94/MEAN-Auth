@@ -1,17 +1,16 @@
-
 <div class="modal" id="loginModal" role="dialog" ng-controller="Login">
     <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
-            
+
             <div class="modal-body">
                 <md-content layout-padding="">
                     <div>
-                      <form name="loginForm" action="/login" method="post">
+                        <form name="loginForm" action="/login" method="post">
 
-                        <!-- If you choose Email ID, Uncomment the below block -->
-                        <!-- <md-input-container class="md-block">
+                            <!-- If you choose Email ID, Uncomment the below block -->
+                            <!-- <md-input-container class="md-block">
                             <label>Email</label>
                             <input required type="email" name="username" ng-model="form.username" minlength="4" maxlength="100" ng-pattern="/^.+@.+\..+$/">
                     
@@ -20,70 +19,53 @@
                                 It doesn't look like an e-mail address.
                               </div>
                             </div>
-                          </md-input-container> -->
+                            </md-input-container> -->
 
-                          <!-- Choose either Email or Username (Comment and unncomment either the above and lower blocks) -->
-                          
-                          <!-- If you choose username, Uncomment the below block -->
-                          <!-- ng-pattern for Username can only have a-z A-Z - _ 0-9 -->
-                          <md-input-container class="md-block" >
-                            <label>Username</label>
-                            <input required name="username" ng-model="form.username" minlength="4" maxlength="100" ng-pattern="/^[A-Za-z0-9]+(?:[_-][A-Za-z0-9]+)*$/">
 
-                            <div ng-messages="loginForm.username.$error" role="alert">
-                                <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                                  Something suspicious about your username
+                            <!-- Choose either Email or Username (Comment and unncomment either the above and lower blocks) -->
+
+
+                            <!-- If you choose username, Uncomment the below block -->
+                            <!-- ng-pattern for Username can only have a-z A-Z - _ 0-9 -->
+                            <md-input-container class="md-block">
+                                <label>Username</label>
+                                <input required name="username" ng-model="username" minlength="4" maxlength="100" ng-pattern="/^[A-Za-z0-9]+(?:[_-][A-Za-z0-9]+)*$/">
+
+                                <div ng-messages="loginForm.username.$error" role="alert">
+                                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                        Something suspicious about your username
+                                    </div>
                                 </div>
-                              </div>
-                          </md-input-container>
+                            </md-input-container>
 
-                          <md-input-container class="md-block" flex-gt-sm>
-                            <label>Password</label>
-                            <input name="password" type="password" name="password" ng-model="form.password" required />
-                            <div ng-messages="loginForm.password.$error" role="alert">
-                              <div ng-message="required">Password is required   </div>
-                            </div>
-                          </md-input-container>
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Password</label>
+                                <input name="password" type="password" name="password" ng-model="password" required />
+                                <div ng-messages="loginForm.password.$error" role="alert">
+                                    <div ng-message="required">Password is required </div>
+                                </div>
+                            </md-input-container>
 
-                
-                      </form>
+                            <md-button class="md-raised md-primary" type="submit">Login</md-button>
+                        </form>
                     </div>
-                  </md-content>
-
-
-
-
-
-
-
-                    <!-- <h2 class="form-signin-heading">Please sign in</h2> -->
-                    <!-- <md-input-container>
-                        <label>Enter date</label>
-                        <md-datepicker ng-model="user.submissionDate"></md-datepicker>
-                    </md-input-container> -->
-                    <!-- <label class="sr-only" for="inputEmail"></label>
-                    <input class="form-control" type="text" name="username" id="inputEmail" placeholder="Username" required="required" autofocus="autofocus"
-                    />
-                    <input class="form-control" type="password" name="password" id="inputPassword" placeholder="Password" /><br>
-                    
-                    <!-- <textarea id="datetime" name="date" style="display:none;"></textarea> -->
-                    <!-- <button class="btn btn-lg btn-primary btn-block" id="loginButtonId" type="submit">LOGIN</button>
-                </form> -->
+                </md-content>
 
                 <back></back>
                 <button ng-click="clickMe()" id="backButton">Close</button>
                 <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
             </div>
-            
+
         </div>
 
     </div>
 </div>
 
 <script>
-$("#loginModal").modal();
+    $("#loginModal").modal();
 
-$("#loginModal").on("hidden.bs.modal", function () {
-    $("#backButton").click()
-});
+    $("#loginModal").on("hidden.bs.modal", function () {
+        $("#backButton").click()
+    });
+
 </script>

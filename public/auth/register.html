@@ -3,27 +3,82 @@
 
         <!-- Modal content-->
         <div class="modal-content">
-            
-            <div class="modal-body">
-                <p>Some text in the modal.</p>
-                
 
-                <!-- <site-header back="back"></site-header> -->
+            <div class="modal-body">
+                <md-content layout-padding="">
+                    <div>
+                        <form name="registerForm" action="/register" method="post">
+
+                            <!-- Uncomment the username block to include into register form --> <!-- ng-pattern for Username can only have a-z A-Z - _ 0-9 -->
+                            <md-input-container class="md-block">
+                                <label>Username</label>
+                                <input  name="username" ng-model="username" minlength="4" maxlength="100" ng-pattern="/^[A-Za-z0-9]+(?:[_-][A-Za-z0-9]+)*$/">
+
+                                <div ng-messages="registerForm.username.$error" role="alert">
+                                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                        Something suspicious about your username
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+                            <!-- Uncomment the Email block to include into register form --> <!--If you're including only Email as your username, change name="username" and ng-messages="registerForm.username.$error" -->
+                            <md-input-container class="md-block">
+                            <label>Email</label>
+                            <input  type="email" name="email" ng-model="email" minlength="4" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+                    
+                            <div ng-messages="registerForm.email.$error" role="alert">
+                              <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                It doesn't look like an e-mail address.
+                              </div>
+                            </div>
+                            </md-input-container>
+
+                            <!-- Password block -->
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Password</label>
+                                <input name="password" type="password" name="password" ng-model="password"  />
+                                <div ng-messages="registerForm.password.$error" role="alert">
+                                    <div ng-message="required">Password is required </div>
+                                </div>
+                            </md-input-container>
+
+                            <!-- Confirm password block -->
+                            <md-input-container class="md-block">
+                                <label>Confirm Password</label>
+                                <input type="password" name="confirm_password" ng-model="confirm_password"  compare-to="password" />
+                                <div ng-messages="registerForm.confirm_password.$error" role="alert" class="form-errors first-name-error">
+                                  <div ng-message="required">Password is required.</div>
+                                  <div ng-message="compareTo">Must not match</div>
+                                </div>
+                            </md-input-container>
+
+                            <!-- Date of birth block -->
+                            <md-input-container>
+                                <label>Date of Birth</label>
+                                <md-datepicker type="date" name="DOB" ng-model="dob"></md-datepicker>
+                                <input type=date name=DOB style="display:none;" ng-model="date"></input>    <!-- Work around to send date to post. Always hidden -->
+                            </md-input-container>
+
+                            <md-button class="md-raised md-primary" ng-click="submitForm()" type="submit">Register</md-button>
+                        </form>
+                    </div>
+                </md-content>
 
                 <back></back>
                 <button ng-click="clickMe()" id="backButton">Close</button>
                 <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
             </div>
-            
+
         </div>
 
     </div>
 </div>
 
 <script>
-$("#registerModal").modal();
+    $("#registerModal").modal();
 
-$("#registerModal").on("hidden.bs.modal", function () {
-    $("#backButton").click()
-});
+    $("#registerModal").on("hidden.bs.modal", function () {
+        $("#backButton").click()
+    });
+
 </script>
