@@ -1,5 +1,12 @@
-var app = angular.module('myApp', ['ngRoute'])
+var app = angular.module('myApp', ['ngMaterial', 'ngMessages','ngRoute'])
 
+app.controller('Login', function($scope) {
+    
+  });
+
+  app.controller('Register', function($scope) {
+    
+  });
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
     $routeProvider.when('/register',
@@ -19,25 +26,6 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
     $locationProvider.html5Mode({ enabled: true, requireBase: false });
 }]);
 
-// app.directive('siteHeader', function () {
-//     return {
-//         restrict: 'E',
-//         template: '<button class="btn">{{back}}</button>',
-//         scope: {
-//             back: '@back'
-//             },
-//         link: function(scope, element, attrs) {
-//             $(element[0]).on('click', function() {
-//                 $('body').removeClass('modal-open');
-//                 $('.modal-backdrop').remove();
-//                 history.back();
-//                 scope.$apply();
-//             });
-           
-//         }
-//     };
-// });
-
 app.directive('back', function() {
     return {
         restrict: 'E',
@@ -56,12 +44,10 @@ app.directive('back', function() {
     }
 });
 
-function Register($scope){
+// function Register($scope){
 
-}
+// }
 
-function Login($scope){
+// function Login($scope){
     
-}
-// function Ctrl($scope) {
 // }

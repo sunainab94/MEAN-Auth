@@ -6,6 +6,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/temp', function(req, res, next) {
+  res.render('temp', { title: 'Express' });
+});
+
 router.post('/login', function(req, res, next) {  //Test
 
   console.log(req.body);
