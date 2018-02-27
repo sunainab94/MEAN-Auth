@@ -1,1 +1,29 @@
-Welcome to Register!!
+<div class="modal" id="registerModal" role="dialog" ng-controller="Register">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+                
+
+                <!-- <site-header back="back"></site-header> -->
+
+                <back></back>
+                <button ng-click="clickMe()" id="backButton">Close</button>
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+
+<script>
+$("#registerModal").modal();
+
+$("#registerModal").on("hidden.bs.modal", function () {
+    $("#backButton").click()
+});
+</script>

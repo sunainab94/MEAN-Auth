@@ -4,11 +4,13 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
     $routeProvider.when('/register',
         {
-            templateUrl: 'auth/register.html'
+            templateUrl: 'auth/register.html',
+            controller : 'Register'
         });
     $routeProvider.when('/login',
         {
-            templateUrl: 'auth/login.html'
+            templateUrl: 'auth/login.html',
+            controller : 'Login'
         });
 
     $routeProvider.otherwise({ redirectTo: '/' });
@@ -54,5 +56,12 @@ app.directive('back', function() {
     }
 });
 
-function Ctrl($scope) {
+function Register($scope){
+
 }
+
+function Login($scope){
+    
+}
+// function Ctrl($scope) {
+// }
