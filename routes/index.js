@@ -13,8 +13,18 @@ router.get('/temp', function (req, res, next) {
 router.post('/login', function (req, res, next) {  //Test
 
   console.log(req.body);
-  res.render('index', { title: 'Express' });
+  res.render('temp', { title: 'Express' });
 });
+
+router.post('/loginPost', function (req, res, next) {  //Test
+  
+  /**
+   * if success,  res.status(200).send('Success')
+   * if failed,   res.status(300).send('Failed')
+   */
+    //res.send("Success");
+    res.status(200).send('Authentication successful')
+  });
 
 router.post('/register', function (req, res, next) {  //Test
 

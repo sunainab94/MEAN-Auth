@@ -1,6 +1,23 @@
 var app = angular.module('myApp', ['ngMaterial', 'ngMessages', 'ngRoute'])
 
-app.controller('Login', function ($scope) {
+app.controller('Login', function ($http, $scope) {
+
+    $scope.loginClick = function () {
+
+        //alert($scope.user);
+        var url = "/loginPost";
+        $http.post(url, $scope.user)
+            .then(
+            function (response) {   //Success code (200)
+
+                alert(response.data);
+
+            }, function (response) {    //Error code (300)
+                
+                alert("Failed");
+            }
+            );
+    }
 
 });
 
