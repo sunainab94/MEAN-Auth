@@ -6,13 +6,13 @@ router.get('/', function (req, res, next) {
     res.render('temp', { title: 'Express' });
 });
 
-/* GET home page. */
-router.get('/register', function (req, res, next) {
-    res.render('register', {});
-});
+// /* GET home page. */
+// router.get('/register', function (req, res, next) {
+//     res.render('register', {});
+// });
 
-router.get('/login', function (req, res, next) {
-    res.render('login', {});
-});
+// router.get('/login', function (req, res, next) {
+//     res.render('login', {});
+// });
 
 module.exports = router;

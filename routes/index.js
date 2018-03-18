@@ -6,8 +6,8 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/temp', function (req, res, next) {
-  res.render('temp', { title: 'Express' });
+router.get('/pemp', function (req, res, next) {
+  res.render('tester', { title: 'Express' });
 });
 
 router.post('/login', function (req, res, next) {  //Test

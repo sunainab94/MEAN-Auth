@@ -1,6 +1,13 @@
 var app = angular.module('myApp', ['ngMaterial', 'ngMessages', 'ngRoute'])
 
-app.controller('Login', function ($http, $scope) {
+app.run(function($rootScope, $document) {
+    $rootScope.previousURL = document.URL;
+    
+});
+
+app.controller('Login', function ($window, $http, $scope, $rootScope) {
+
+    //console.log($rootScope.previousURL);
 
     $scope.loginClick = function () {
 
@@ -10,11 +17,13 @@ app.controller('Login', function ($http, $scope) {
             .then(
             function (response) {   //Success code (200)
 
-                alert(response.data);
+                //alert($rootScope.previousURL);
+                $scope.IsVisible = false;
+                $window.location.href = $rootScope.previousURL;
 
             }, function (response) {    //Error code (300)
-                
-                alert("Failed");
+
+                $scope.IsVisible = true;
             }
             );
     }
@@ -41,7 +50,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             controller: 'Login'
         });
 
-    $routeProvider.otherwise({ redirectTo: '/' });
+    //$routeProvider.otherwise({ redirectTo: '/' });
 
     //console.log($window.history);
     $locationProvider.html5Mode({ enabled: true, requireBase: false });
