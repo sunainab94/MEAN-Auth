@@ -1,23 +1,19 @@
 var app = angular.module('myApp', ['ngMaterial', 'ngMessages', 'ngRoute'])
 
-app.run(function($rootScope, $document) {
+app.run(function ($rootScope, $document) {
     $rootScope.previousURL = document.URL;
-    
+
 });
 
 app.controller('Login', function ($window, $http, $scope, $rootScope) {
 
-    //console.log($rootScope.previousURL);
-
     $scope.loginClick = function () {
 
-        //alert($scope.user);
-        var url = "/loginPost";
+        var url = "/login";
         $http.post(url, $scope.user)
             .then(
             function (response) {   //Success code (200)
 
-                //alert($rootScope.previousURL);
                 $scope.IsVisible = false;
                 $window.location.href = $rootScope.previousURL;
 
@@ -26,14 +22,30 @@ app.controller('Login', function ($window, $http, $scope, $rootScope) {
                 $scope.IsVisible = true;
             }
             );
+
     }
 
 });
 
-app.controller('Register', function ($scope) {
+app.controller('Register', function ($window, $http, $scope, $rootScope) {
 
-    $scope.submitForm = function () {
-        $scope.date = $scope.dob;
+    $scope.registerClick = function () {
+
+        //$scope.user.dob = String($scope.user.dob);    //To convert the date object into string
+
+        var url = "/register";
+        $http.post(url, $scope.user)
+            .then(
+            function (response) {   //Success code (200)
+
+                $scope.IsVisible_Register = false;
+                $window.location.href = $rootScope.previousURL;
+
+            }, function (response) {    //Error code (300)
+
+                $scope.IsVisible_Register = true;
+            }
+            );
     }
 });
 
@@ -63,7 +75,7 @@ app.directive('back', function () {             //Go back to original url when m
         replace: true,
         template: '<div></div>',
         link: function ($scope, element, attributes) {
-            $scope.clickMe = function () {
+            $scope.closeModal = function () {
 
                 $('body').removeClass('modal-open');
                 $('.modal-backdrop').remove();

@@ -4,16 +4,25 @@
         <!-- Modal content-->
         <div class="modal-content">
 
-            <div class="modal-body">
+            <div class="modal-body Auth-modal">
+
+                <back></back>
+                <button ng-click="closeModal()" id="backButton" type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
                 <md-content layout-padding="">
                     <div>
                         <form name="loginForm">
 
-                                <div ng-show = "IsVisible">Username or Password is incorrect<br></div>
+                            <div ng-show="IsVisible" class="alert alert-danger">
+                                <strong>Failed to Login!</strong> Username or Password is incorrect
+                            </div>
+                            <br>
                             <!-- If you choose Email ID, Uncomment the below block -->
                             <!-- <md-input-container class="md-block">
                             <label>Email</label>
-                            <input required type="email" name="username" ng-model="form.username" minlength="4" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+                            <input required type="email" name="username" ng-model="user.username" minlength="4" maxlength="100" ng-pattern="/^.+@.+\..+$/">
                     
                             <div ng-messages="loginForm.username.$error" role="alert">
                               <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
@@ -47,14 +56,11 @@
                                 </div>
                             </md-input-container>
 
-                            <md-button class="md-raised md-primary" ng-click="loginClick()">Login</md-button>
+                            <md-button class="md-raised md-primary" ng-disabled="!(!!user.username && !!user.password)" ng-click="loginClick()">Login</md-button>
                         </form>
                     </div>
                 </md-content>
 
-                <back></back>
-                <button ng-click="clickMe()" id="backButton">Close</button>
-                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
             </div>
 
         </div>

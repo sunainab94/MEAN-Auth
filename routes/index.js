@@ -10,14 +10,10 @@ router.get('/pemp', function (req, res, next) {
   res.render('tester', { title: 'Express' });
 });
 
+
 router.post('/login', function (req, res, next) {  //Test
-
-  console.log(req.body);
-  res.render('temp', { title: 'Express' });
-});
-
-router.post('/loginPost', function (req, res, next) {  //Test
   
+  console.log(req.body);
   /**
    * if success,  res.status(200).send('Success')
    * if failed,   res.status(300).send('Failed')
@@ -29,7 +25,13 @@ router.post('/loginPost', function (req, res, next) {  //Test
 router.post('/register', function (req, res, next) {  //Test
 
   console.log(req.body);
-  res.render('temp', { title: 'Express' });
+  /**
+   * if success,  res.status(200).send('Success')
+   * if failed,   res.status(300).send('Failed')
+   */
+    //res.send("Success");
+    res.status(200).send('Authentication successful')
+
 });
 
 module.exports = router;
